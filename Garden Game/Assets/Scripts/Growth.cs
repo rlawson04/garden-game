@@ -8,24 +8,26 @@ using System;
 public class Growth : MonoBehaviour
 {
     public Text infoText;
-    public int water = 0;
-    public int sunshine = 0;
+    public float water = 0;
+    public float sunshine = 0;
     public float bonus = 0f;
     public GameObject bamboo;
+    public Light light;
+    public Material groundMaterial;
     private float height = 0f;
     private float percentage = 0f;
     private float age = 0;
     private float growth = 0;
     private float yScale;
     private Vector3 position;
+    private Color newColor;
     
 
     // Start is called before the first frame update
     void Start()
     {
         DisplayText();
-       
-
+        newColor = new Color(0.78f, 0.55f, 0.55f, 1.0f);
         position = bamboo.transform.position;
     }
 
@@ -33,6 +35,10 @@ public class Growth : MonoBehaviour
     public void Update()
     {
         DisplayText();
+        light.intensity = sunshine / 100;
+       
+        newColor = new Color(0.78f - water / 5000, 0.41f + water / 1000, 0.41f + water/ 1000, 1.0f);
+        groundMaterial.SetColor("_Color", newColor);
     }
 
     public void SetBonus(float newBonus)
@@ -68,6 +74,8 @@ public class Growth : MonoBehaviour
                 sunshine += 10;
             }
         }
+
+        
     }
 
     public void CalcGrowth()
