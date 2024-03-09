@@ -12,10 +12,13 @@ public class Growth : MonoBehaviour
     public int sunshine = 0;
     public float bonus = 0f;
     public GameObject bamboo;
-    float height = 0f;
-    float percentage = 0f;
-    float age = 0;
-    float growth = 0;
+    private float height = 0f;
+    private float percentage = 0f;
+    private float age = 0;
+    private float growth = 0;
+    private float yScale;
+    private Vector3 position;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +69,10 @@ public class Growth : MonoBehaviour
 
     public void CalcGrowth()
     {
+        if (percentage == 100)
+        {
+            return;
+        }
         // Increment age
         age++;
 
@@ -108,8 +115,12 @@ public class Growth : MonoBehaviour
     void CalcHeight()
     {
         height = (percentage/10);
-        bamboo.transform.localScale = new Vector3(0, height, 0);
-        bamboo.transform.position = new Vector3(0, height, 0);
+
+        position = bamboo.transform.position;
+        yScale = bamboo.transform.localScale.y;
+
+        bamboo.transform.localScale = new Vector3(bamboo.transform.localScale.x, height, bamboo.transform.localScale.z);
+        bamboo.transform.position = position + (bamboo.transform.forward) * (bamboo.transform.localScale.y / 2.0f + yScale / 2.0f);
     }
 
     void DisplayText()
