@@ -24,6 +24,9 @@ public class Growth : MonoBehaviour
     void Start()
     {
         DisplayText();
+       
+
+        position = bamboo.transform.position;
     }
 
     // Update is called once per frame
@@ -116,11 +119,10 @@ public class Growth : MonoBehaviour
     {
         height = (percentage/10);
 
-        position = bamboo.transform.position;
         yScale = bamboo.transform.localScale.y;
 
-        bamboo.transform.localScale = new Vector3(bamboo.transform.localScale.x, height, bamboo.transform.localScale.z);
-        bamboo.transform.position = position + (bamboo.transform.forward) * (bamboo.transform.localScale.y / 2.0f + yScale / 2.0f);
+        bamboo.transform.localScale = new Vector3(bamboo.transform.localScale.x, height/5, bamboo.transform.localScale.z);
+        bamboo.transform.position = position + (bamboo.transform.up) * (yScale / 2.0f);
     }
 
     void DisplayText()
