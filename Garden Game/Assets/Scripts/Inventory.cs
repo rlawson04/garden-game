@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public bool selected;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,9 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (selected)
+        {
+
+        }
     }
 }
