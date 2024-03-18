@@ -4,23 +4,28 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public bool selected;
-    [SerializeField] private GameObject canvas;
+    [SerializeField] private GameObject storeCanvas;
+    [SerializeField] private GameObject inventoryCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        canvas.SetActive(false);
+        storeCanvas.SetActive(false);
+        inventoryCanvas.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void ButtonPressed()
+    public void StoreButtonPressed()
     {
         selected = !selected;
-        canvas.SetActive(selected);
+        storeCanvas.SetActive(selected);
+        inventoryCanvas.SetActive(!selected);
     }
+
+
 }

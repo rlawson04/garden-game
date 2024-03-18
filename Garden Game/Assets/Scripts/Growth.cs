@@ -9,7 +9,7 @@ public class Growth : MonoBehaviour
 {
     [SerializeField] Text infoText;
     [SerializeField] GameObject bamboo;
-    [SerializeField] Light light;
+    [SerializeField] Light sun;
     [SerializeField] Material groundMaterial;
     public float water = 0;
     public float sunshine = 0;
@@ -35,7 +35,7 @@ public class Growth : MonoBehaviour
     public void Update()
     {
         DisplayText();
-        light.intensity = sunshine / 100;
+        sun.intensity = sunshine / 100;
        
         newColor = new Color(0.78f - water / 5000, 0.41f + water / 1000, 0.41f + water/ 1000, 1.0f);
         groundMaterial.SetColor("_Color", newColor);
