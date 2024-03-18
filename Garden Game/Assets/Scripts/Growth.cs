@@ -7,13 +7,13 @@ using System;
 
 public class Growth : MonoBehaviour
 {
-    public Text infoText;
+    [SerializeField] Text infoText;
+    [SerializeField] GameObject bamboo;
+    [SerializeField] Light light;
+    [SerializeField] Material groundMaterial;
     public float water = 0;
     public float sunshine = 0;
     public float bonus = 0f;
-    public GameObject bamboo;
-    public Light light;
-    public Material groundMaterial;
     private float height = 0f;
     private float percentage = 0f;
     private float age = 0;
