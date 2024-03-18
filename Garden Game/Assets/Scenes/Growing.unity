@@ -6650,7 +6650,7 @@ GameObject:
   - component: {fileID: 1360273286}
   - component: {fileID: 1360273285}
   m_Layer: 6
-  m_Name: Camera
+  m_Name: Player camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6876,6 +6876,7 @@ GameObject:
   - component: {fileID: 1371457145}
   - component: {fileID: 1371457149}
   - component: {fileID: 1371457150}
+  - component: {fileID: 1371457151}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -6932,6 +6933,21 @@ MonoBehaviour:
   selected: 0
   storeCanvas: {fileID: 648409155}
   inventoryCanvas: {fileID: 1907041486}
+--- !u!114 &1371457151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371457143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a161e993dfc9e9f46bb77066c1f48a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 963194225}
+  playerCamera: {fileID: 1360273283}
+  player: {fileID: 407210835}
 --- !u!1 &1383218045
 GameObject:
   m_ObjectHideFlags: 0
