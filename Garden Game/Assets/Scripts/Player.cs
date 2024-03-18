@@ -36,5 +36,13 @@ public class Player : MonoBehaviour
         {
             player.transform.position -= Vector3.forward;
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            player.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            player.transform.rotation = Quaternion.LookRotation(-Vector3.forward, Vector3.up);
+        }
     }
 }
