@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _speed = 1;
-    [SerializeField] private float _jumpForce = 200;
+    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _turnSpeed = 0.1f;
+    [SerializeField] private Transform cam;
     public CharacterController controller;
+    float turnSmoothVelocity;
 
     // Update is called once per frame
     void Update()
@@ -18,12 +20,13 @@ public class Player : MonoBehaviour
         
         if(direction.magnitude > 0.1f)
         {
-            controller.Move(direction * _speed * Time.deltaTime);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-         
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, _turnSpeed);
+
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * _speed * Time.deltaTime);
         }
         
     }
