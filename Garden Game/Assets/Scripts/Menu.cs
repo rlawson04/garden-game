@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    public bool selected;
+    bool is_selected;
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject uiCanvas;
+    [SerializeField] private GameObject teleportCanvas;
+
 
     // Start is called before the first frame update
     void Start()
     {
         menuCanvas.SetActive(false);
         uiCanvas.SetActive(true);
+        teleportCanvas.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -20,10 +24,26 @@ public class Menu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            selected = !selected;
-            menuCanvas.SetActive(selected);
-            uiCanvas.SetActive(!selected);
+            is_selected = !is_selected;
+            menuCanvas.SetActive(is_selected);
+            uiCanvas.SetActive(!is_selected);
         }
+    }
 
+    public void CloseMenu()
+    {
+        is_selected = !is_selected;
+        menuCanvas.SetActive(is_selected);
+        uiCanvas.SetActive(!is_selected);
+    }
+
+    public void OpenTeleportMenu()
+    {
+        teleportCanvas.SetActive(true);
+    }
+
+    public void CloseTeleportMenu()
+    {
+        teleportCanvas.SetActive(false);
     }
 }
