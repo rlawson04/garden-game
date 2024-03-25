@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject menuCanvas;
     [SerializeField] private GameObject uiCanvas;
     [SerializeField] private GameObject teleportCanvas;
+    [SerializeField] private GameObject controlsCanvas;
 
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class Menu : MonoBehaviour
         menuCanvas.SetActive(false);
         uiCanvas.SetActive(true);
         teleportCanvas.SetActive(false);
+        controlsCanvas.SetActive(false);
 
     }
 
@@ -45,5 +47,17 @@ public class Menu : MonoBehaviour
     public void CloseTeleportMenu()
     {
         teleportCanvas.SetActive(false);
+    }
+
+    public void OpenControlsMenu()
+    {
+        controlsCanvas.SetActive(true);
+        menuCanvas.SetActive(false);
+    }
+
+    public void CloseControlsMenu()
+    {
+        controlsCanvas.SetActive(false);
+        menuCanvas.SetActive(true);
     }
 }
