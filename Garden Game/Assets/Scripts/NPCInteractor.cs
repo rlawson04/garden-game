@@ -12,6 +12,7 @@ public class NPCInteractor : MonoBehaviour, IsInteractable
     public void Interact()
     {
         shopCanvas.SetActive(true);
+        Hide();
     }
 
     public void Show()

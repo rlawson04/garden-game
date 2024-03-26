@@ -9,16 +9,18 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject uiCanvas;
     [SerializeField] private GameObject teleportCanvas;
     [SerializeField] private GameObject controlsCanvas;
+    [SerializeField] private GameObject shopCanvas;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        menuCanvas.SetActive(false);
         uiCanvas.SetActive(true);
+        menuCanvas.SetActive(false);
         teleportCanvas.SetActive(false);
         controlsCanvas.SetActive(false);
-
+        shopCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,5 +61,10 @@ public class Menu : MonoBehaviour
     {
         controlsCanvas.SetActive(false);
         menuCanvas.SetActive(true);
+    }
+   
+    public void CloseShopMenu()
+    {
+        shopCanvas.SetActive(false);
     }
 }
