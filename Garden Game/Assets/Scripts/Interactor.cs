@@ -21,7 +21,7 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
             Debug.DrawRay(InteractorSource.position, InteractorSource.forward, Color.red, 1.0f, false);
@@ -33,5 +33,19 @@ public class Interactor : MonoBehaviour
                 }
             }
         }
+        
+    }
+
+    public NPCInteractor GetInteractable()
+    {
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+        foreach (Collider collider in colliderArray)
+        {
+            if (collider.TryGetComponent(out NPCInteractor npc))
+            {
+                return npc;
+            }
+        }
+        return null;
     }
 }
