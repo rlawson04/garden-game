@@ -10,6 +10,9 @@ public class PlayerHideText : MonoBehaviour
     [SerializeField]
     private float visibleRadius;
 
+    [SerializeField]
+    private MeshRenderer mr;
+
     private GameObject telescope;
 
     // Start is called before the first frame update
@@ -23,11 +26,11 @@ public class PlayerHideText : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, telescope.transform.position) < visibleRadius) // TODO: Rewrite this to not use Vector3.Distance
         {
-            this.gameObject.SetActive(true);
+            mr.gameObject.SetActive(true);
         }
         else
         {
-            this.gameObject.SetActive(false);
+            mr.gameObject.SetActive(false);
         }
 
         
