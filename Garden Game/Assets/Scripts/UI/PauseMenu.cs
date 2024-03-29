@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject teleportCanvas;
     [SerializeField] private GameObject inventoryCanvas;
 
-
     // Update is called once per frame
     void Update()
     {

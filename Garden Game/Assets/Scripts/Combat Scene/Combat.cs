@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
-    // Add animator later
-    //public Animator animator;
+    public Animator animator;
 
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+
     public LayerMask enemyLayers;
+    public float attackRange = 0.5f;
+    public int attackDamage = 40;
 
     // Update is called once per frame
     void Update()
@@ -23,14 +24,21 @@ public class Combat : MonoBehaviour
     void Attack()
     {
         //play attack animation
-        //animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack");
 
         // detect enemy 
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-        foreach(Collider collider in hitEnemies)
-        { 
-            collider.gameObject.SetActive(false);
+        foreach(Collider enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
         // apply damage
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHideText : MonoBehaviour
 {
     [SerializeField]
-    private Player player;
+    private PlayerController player;
 
     [SerializeField]
     private float visibleRadius;
