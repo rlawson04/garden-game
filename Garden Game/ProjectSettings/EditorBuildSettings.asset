@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Growing.unity
     guid: 6595ef35529ab6d4d872a2dfa2a8c381
+  - enabled: 1
+    path: Assets/Scenes/Golem Scene.unity
+    guid: e4ed9b4fcfe96df40a89ca76136279d8
   m_configObjects: {}

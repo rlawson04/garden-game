@@ -9,11 +9,13 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject shopCanvas;
     [SerializeField] private GameObject teleportCanvas;
     [SerializeField] private GameObject inventoryCanvas;
+    [SerializeField] private GameObject settingsCanvas;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (menuCanvas.activeInHierarchy || shopCanvas.activeInHierarchy || teleportCanvas.activeInHierarchy || inventoryCanvas.activeInHierarchy)
+        if (menuCanvas.activeInHierarchy || shopCanvas.activeInHierarchy || teleportCanvas.activeInHierarchy || inventoryCanvas.activeInHierarchy || settingsCanvas.activeInHierarchy)
         {
             Pause();
         }
